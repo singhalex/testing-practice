@@ -1,3 +1,5 @@
+import exp from "constants";
+
 export function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
 }
@@ -40,4 +42,29 @@ export function caesarCipher(string, shift) {
     const cipher = array.join('');
     
     return cipher
+}
+
+export function analyzeArray(array) {
+    let average, min, max;
+    const length = array.length
+
+    if (array.length === 0) {
+        average = 0;
+        min = 0;
+        max = 0;
+    } else {
+        const sum = (array.reduce((accumulator, currentValue) => accumulator + currentValue))
+        average = sum / array.length
+        min = Math.min(...array)
+        max = Math.max(...array)
+    }
+    
+
+    return {
+        average: average,
+        min: min,
+        max: max,
+        length: length,
+    }
+
 }
